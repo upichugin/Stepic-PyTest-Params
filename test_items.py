@@ -11,4 +11,6 @@ def test_add_to_basket_located(browser):
     print('User language: {}'.format(browser.__user_language))
     browser.get(link)
     time.sleep(10)
-    button = browser.find_element_by_css_selector("#add_to_basket_form button.btn-add-to-basket")
+    button = browser.find_elements_by_css_selector("#add_to_basket_form button.btn-add-to-basket")
+    button_count = len(button)
+    assert button_count == 1, f"Found {button_count} add to basket buttons, expected 1"
